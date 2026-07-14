@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>test1 — 뱀파이어 서바이벌</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 메인 메뉴 -->
+  <section id="screen-menu" class="screen active">
+    <h1 class="title">test1</h1>
+    <p class="subtitle">10분을 버텨라</p>
+    <p id="best-record" class="best-record"></p>
+    <div class="menu-buttons">
+      <button id="btn-start" class="big-btn">게임 시작</button>
+      <button id="btn-guide" class="big-btn secondary">조작 안내</button>
+    </div>
+    <div id="guide-panel" class="guide-panel hidden">
+      <h3>조작</h3>
+      <ul>
+        <li>이동: 방향키 또는 WASD (모바일: D패드)</li>
+        <li>공격: 자동 — 근처 몹을 감지해 무기가 자동 발사됩니다</li>
+        <li>경험치 젬은 접근하면 자동 획득됩니다</li>
+        <li>레벨업 시 강화 카드 3장 중 하나를 선택하세요</li>
+        <li>10분 생존 시 승리 · 체력 0이면 패배</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 게임 화면 -->
+  <section id="screen-game" class="screen">
+    <div id="hud">
+      <div class="hud-row">
+        <div id="timer">00:00</div>
+        <div id="level-badge">Lv.1</div>
+        <div id="kill-count">몹 처치 0</div>
+      </div>
+      <div class="hud-row">
+        <div id="hp-wrap">
+          <div class="bar-bg"><div id="hp-bar" class="bar-fill hp"></div></div>
+          <span id="hp-text">100 / 100</span>
+        </div>
+      </div>
+      <div class="hud-row">
+        <div id="xp-wrap">
+          <div class="bar-bg small"><div id="xp-bar" class="bar-fill xp"></div></div>
+          <span id="xp-text">0 / 5</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+      <!-- 레벨업 카드 선택 오버레이 -->
+      <div id="levelup-overlay" class="overlay hidden">
+        <div class="overlay-inner">
+          <h2>레벨 업!</h2>
+          <p>강화를 선택하세요</p>
+          <div id="card-choices"></div>
+        </div>
+      </div>
+      <!-- 일시정지 -->
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="overlay-inner">
+          <h2>일시정지</h2>
+          <button id="btn-resume" class="big-btn">계속</button>
+          <button id="btn-quit" class="big-btn secondary">포기</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="touch-controls">
+      <div id="dpad">
+        <button class="dpad-btn" id="dpad-up">▲</button>
+        <button class="dpad-btn" id="dpad-left">◀</button>
+        <button class="dpad-btn" id="dpad-down">▼</button>
+        <button class="dpad-btn" id="dpad-right">▶</button>
+      </div>
+      <button id="btn-pause" class="pause-btn">II</button>
+    </div>
+  </section>
+
+  <!-- 결과 화면 -->
+  <section id="screen-end" class="screen">
+    <h2 id="end-title"></h2>
+    <p id="end-message"></p>
+    <div id="end-stats" class="end-stats"></div>
+    <button id="btn-end-confirm" class="big-btn">메인으로</button>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
