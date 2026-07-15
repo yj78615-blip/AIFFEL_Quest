@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>혼돈의 궤적</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 메인 메뉴 -->
+  <section id="screen-menu" class="screen active">
+    <h1 class="title">혼돈의 궤적</h1>
+    <p class="subtitle">루트 파밍 생존 게임</p>
+    <div class="menu-buttons">
+      <button id="btn-goto-field" class="big-btn">필드로 이동</button>
+      <button id="btn-goto-inventory" class="big-btn">인벤토리</button>
+    </div>
+  </section>
+
+  <!-- 필드 선택 -->
+  <section id="screen-fieldselect" class="screen">
+    <h2>필드 선택</h2>
+    <div class="field-grid">
+      <button class="field-btn" data-field="forest"><span class="field-icon">🌲</span>숲</button>
+      <button class="field-btn" data-field="wasteland"><span class="field-icon">🏜️</span>황야</button>
+      <button class="field-btn" data-field="grassland"><span class="field-icon">🌾</span>초원</button>
+      <button class="field-btn" data-field="city"><span class="field-icon">🏙️</span>도심</button>
+      <button class="field-btn" data-field="underground"><span class="field-icon">🕳️</span>지하</button>
+    </div>
+    <button class="back-btn" data-back="menu">뒤로</button>
+  </section>
+
+  <!-- 인벤토리 -->
+  <section id="screen-inventory" class="screen">
+    <h2>인벤토리</h2>
+    <div id="inventory-list" class="item-list"></div>
+    <button class="back-btn" data-back="menu">뒤로</button>
+  </section>
+
+  <!-- 필드(게임) 화면 -->
+  <section id="screen-field" class="screen">
+    <div id="hud">
+      <div class="hud-row">
+        <div id="field-name-badge"></div>
+        <div id="timer">10:00</div>
+      </div>
+      <div class="hud-row">
+        <div id="hp-wrap">
+          <div id="hp-bar-bg"><div id="hp-bar"></div></div>
+          <span id="hp-text">100 / 100</span>
+        </div>
+      </div>
+      <div class="hud-row">
+        <div id="equipped">무기: 없음</div>
+        <div id="quick-items">
+          <button id="potion-quick" class="quick-btn">🧪 포션 <span id="potion-count">0</span> (S)</button>
+          <span id="material-quick">💎 재료 <span id="material-count">0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+    </div>
+
+    <div id="touch-controls">
+      <div id="dpad">
+        <button class="dpad-btn" id="dpad-up">▲</button>
+        <button class="dpad-btn" id="dpad-left">◀</button>
+        <button class="dpad-btn" id="dpad-down">▼</button>
+        <button class="dpad-btn" id="dpad-right">▶</button>
+      </div>
+      <div id="action-buttons">
+        <button id="btn-get" class="action-btn">획득<br><small>F</small></button>
+        <button id="btn-attack" class="action-btn">공격<br><small>A</small></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 종료 화면 -->
+  <section id="screen-end" class="screen">
+    <h2 id="end-title"></h2>
+    <p id="end-message"></p>
+    <div id="end-items" class="item-list"></div>
+    <button id="btn-end-confirm" class="big-btn">메인으로</button>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
