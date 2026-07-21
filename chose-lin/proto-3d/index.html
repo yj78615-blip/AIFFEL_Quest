@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>혼돈의 궤적 · 2.5D 프로토타입</title>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <div id="hud">
+    <div class="hud-row">
+      <span id="fps">FPS —</span>
+      <span id="mode-badge">2.5D 프로토타입</span>
+    </div>
+    <div class="hud-row">
+      <div id="hp-wrap">
+        <div class="bar-bg"><div id="hp-bar"></div></div>
+        <span id="hp-text">100 / 100</span>
+      </div>
+    </div>
+    <div class="hud-row small">
+      <span>이동: WASD · 시점 회전: 우클릭 홀드</span>
+      <span id="mob-count">몹 0</span>
+    </div>
+  </div>
+
+  <div id="canvas-wrap"></div>
+
+  <div id="dead-overlay" class="hidden">
+    <div class="dead-inner">
+      <h2>사망...</h2>
+      <p>몹에게 당했습니다.</p>
+      <button id="btn-restart">다시 시작</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
